@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Driver {
     public static void main(String[] args) {
-        // Read the dataset
         String fileName = "dataset/data.csv";
         List<Book> books = DatasetReader.readBooksFromCSV(fileName);
         
@@ -14,10 +13,8 @@ public class Driver {
         
         System.out.println("Successfully loaded " + books.size() + " books from the dataset.");
         
-        // Create BookAnalyzer instance
         BookAnalyzer analyzer = new BookAnalyzer(books);
         
-        // Display menu and handle user input
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
         
@@ -27,7 +24,7 @@ public class Driver {
             
             try {
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Consume newline
+                scanner.nextLine(); 
                 
                 switch (choice) {
                     case 1:
@@ -63,7 +60,7 @@ public class Driver {
                 
             } catch (Exception e) {
                 System.out.println("Invalid input. Please enter a valid number.");
-                scanner.nextLine(); // Clear invalid input
+                scanner.nextLine();
             }
         }
         
@@ -114,13 +111,13 @@ public class Driver {
         
         try {
             double rating = scanner.nextDouble();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
             
             System.out.println();
             analyzer.printBooksByRating(rating);
         } catch (Exception e) {
             System.out.println("Invalid rating format. Please enter a decimal number.");
-            scanner.nextLine(); // Clear invalid input
+            scanner.nextLine(); 
         }
     }
     

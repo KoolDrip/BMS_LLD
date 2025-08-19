@@ -11,7 +11,6 @@ public class DatasetReader {
         String line;
         
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            // Skip the header line
             br.readLine();
             
             while ((line = br.readLine()) != null) {
@@ -33,7 +32,6 @@ public class DatasetReader {
     }
     
     private static Book parseBookFromLine(String line) {
-        // Handle CSV parsing with potential commas in quoted fields
         List<String> fields = parseCSVLine(line);
         
         if (fields.size() < 7) {
@@ -75,7 +73,6 @@ public class DatasetReader {
             }
         }
         
-        // Add the last field
         fields.add(field.toString());
         
         return fields;

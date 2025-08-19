@@ -7,7 +7,6 @@ public class BookAnalyzer {
         this.books = books;
     }
     
-    // Task 1: Total number of books by an author
     public int getTotalBooksByAuthor(String authorName) {
         int count = 0;
         for (Book book : books) {
@@ -18,7 +17,6 @@ public class BookAnalyzer {
         return count;
     }
     
-    // Task 2: All the authors in the dataset
     public Set<String> getAllAuthors() {
         Set<String> authors = new HashSet<>();
         for (Book book : books) {
@@ -37,7 +35,6 @@ public class BookAnalyzer {
         System.out.println("Total number of unique authors: " + authors.size());
     }
     
-    // Task 3: Names of all the books by an author
     public List<String> getBooksByAuthor(String authorName) {
         List<String> bookTitles = new ArrayList<>();
         for (Book book : books) {
@@ -62,7 +59,6 @@ public class BookAnalyzer {
         System.out.println("Total books: " + bookTitles.size());
     }
     
-    // Task 4: Classify with a user rating
     public List<Book> getBooksByRating(double rating) {
         List<Book> booksWithRating = new ArrayList<>();
         for (Book book : books) {
@@ -87,7 +83,6 @@ public class BookAnalyzer {
         System.out.println("Total books: " + booksWithRating.size());
     }
     
-    // Task 5: Price of all the books by an author
     public Map<String, Double> getBooksAndPricesByAuthor(String authorName) {
         Map<String, Double> bookPrices = new LinkedHashMap<>();
         for (Book book : books) {
@@ -112,14 +107,12 @@ public class BookAnalyzer {
         System.out.println("Total books: " + bookPrices.size());
     }
     
-    // Additional utility methods
     public void printDatasetSummary() {
         System.out.println("Dataset Summary:");
         System.out.println("================");
         System.out.println("Total books: " + books.size());
         System.out.println("Total unique authors: " + getAllAuthors().size());
         
-        // Count fiction vs non-fiction
         int fictionCount = 0;
         int nonFictionCount = 0;
         for (Book book : books) {
@@ -132,12 +125,10 @@ public class BookAnalyzer {
         System.out.println("Fiction books: " + fictionCount);
         System.out.println("Non-fiction books: " + nonFictionCount);
         
-        // Find rating range
         double minRating = books.stream().mapToDouble(Book::getUserRating).min().orElse(0);
         double maxRating = books.stream().mapToDouble(Book::getUserRating).max().orElse(0);
         System.out.println("Rating range: " + minRating + " - " + maxRating);
         
-        // Find price range
         double minPrice = books.stream().mapToDouble(Book::getPrice).min().orElse(0);
         double maxPrice = books.stream().mapToDouble(Book::getPrice).max().orElse(0);
         System.out.println("Price range: $" + minPrice + " - $" + maxPrice);
